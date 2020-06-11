@@ -4,16 +4,23 @@
     <meta charset="UTF-8" />
     <meta name="convertToJSON" />
     <title>Document Converter</title>
-    <script
+    <!-- <script
       type="text/javascript"
       src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.15.3/xlsx.full.min.js"
-    ></script>
+    ></script> -->
   </head>
 
   <body>
-    <input type="file" id="fileUpload" accept=".xls, .xlsx" /><br />
+    <div id="search">
+      <input id="search-bar" type="text" />
+      <button id="search-submit">Search</button>
+      <button id="reset-search">X</button>
+    </div>
+
+    <div id="container"></div>
+    <!-- <input type="file" id="fileUpload" accept=".xls, .xlsx" /><br />
     <button type="button" id="uploadExcel">Convert</button>
-    <pre id="jsonData"></pre>
-    <script src="script.js"></script>
+    <pre id="jsonData"></pre> -->
+    <script src="loadJson.js"></script>
   </body>
 </html>

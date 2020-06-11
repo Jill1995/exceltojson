@@ -37,3 +37,21 @@ function download(content, fileName, contentType) {
   a.download = fileName;
   a.click();
 }
+
+// fetch(
+//   "https://spreadsheets.google.com/feeds/list/1FWgLmvtOVbV1JImUgjfyLYOB5ZBGsoQgk68CEmG4iag/od6/public/values?alt=json"
+//   // "/files/jsonObj.json"
+// )
+//   .then((response) => {
+//     if (!response.ok) {
+//       throw new Error("HTTP error " + response.status);
+//     }
+//     return response.json();
+//   })
+//   .then((data) => {
+//     // this.users = json;
+//     console.log(data.feed.entry);
+//   })
+//   .catch(function () {
+//     this.dataError = true;
+//   });
