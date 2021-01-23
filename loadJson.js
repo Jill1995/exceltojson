@@ -44,21 +44,25 @@ function renderVideos(data) {
 
   data.forEach((entry, index) => {
     //load first 5 videos
-    if (index > 5) return;
+    if (index > 10) return;
     const videoContainer = document.createElement("div");
     videoContainer.classList.add("video-container");
 
     const video = document.createElement("video");
     video.src = entry.videourl;
     video.controls = true;
+    video.width = 320;
+    video.height = 240;
     videoContainer.appendChild(video);
 
     const name = document.createElement("p");
     name.innerHTML = entry.firstname + " " + entry.lastname;
-    name.addEventListener("click", function () {
-      console.log(entry.location);
-    });
+
+    const description = document.createElement("p");
+    description.innerHTML = entry.shorttextdescription;
+
     videoContainer.appendChild(name);
+    videoContainer.appendChild(description);
     container.appendChild(videoContainer);
   });
 }
@@ -73,11 +77,15 @@ searchSubmit.addEventListener("click", () => {
 
     const firstNameMatch = entry.firstname
       .toLowerCase()
-      .includes(searchBar.value);
+      .includes(searchBar.value.toLowerCase());
     const lastNameMatch = entry.lastname
       .toLowerCase()
-      .includes(searchBar.value);
-    return firstNameMatch || lastNameMatch;
+      .includes(searchBar.value.toLowerCase());
+    const shortTextMatch = entry.shorttextdescription
+      .toLowerCase()
+      .includes(searchBar.value.toLowerCase());
+
+    return firstNameMatch || lastNameMatch || shortTextMatch;
   });
 
   console.log(searchResults);
